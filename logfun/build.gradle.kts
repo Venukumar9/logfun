@@ -1,3 +1,5 @@
+import io.grpc.internal.SharedResourceHolder.release
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -80,4 +82,17 @@ dependencies {
     testImplementation ("androidx.arch.core:core-testing:2.2.0")
     testImplementation("org.robolectric:robolectric:4.11.1")
     androidTestImplementation ("androidx.test:core:1.5.0")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.motivity.logfun"
+                artifactId = "logfun"
+                version = "3.2"
+            }
+        }
+    }
 }
