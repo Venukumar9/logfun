@@ -44,6 +44,7 @@ class UserLoginActivity : AppCompatActivity() {
                         val intent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(intent)
                         finish()
+                        Toast.makeText(applicationContext, "Login success", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(applicationContext, "Response body is null", Toast.LENGTH_LONG).show()
                     }
